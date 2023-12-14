@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css?family=Hind:300,400&display=swap');
+
+* {
+  box-sizing: border-box;
+  &::before, &::after {
+    box-sizing: border-box;
+  }
+}
+
+body { 
+    background-color: #7b9FCF;
+    color: #ffffff;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center ;
+    width: 25cm;
+    margin: 0;
+    padding: 0;
+        margin-left: auto;
+        margin-right: auto;
+    min-height: 10vh;
+    
+      }
+
+      h2 {
+        font-size: 50px;
+      }
+    
+.container {
+  margin: 0 auto;
+  padding: 4rem;
+  width: 48rem;
+}
+
+.accordion {
+  .accordion-item {
+    border-bottom: 1px solid #737373;
+    button[aria-expanded='true'] {
+      border-bottom: 1px solid #ffb703;
+    }
+  }
+  button {
+    position: relative;
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding: 1em 0;
+    color: #fff;
+    font-size: 1.15rem;
+    font-weight: 400;
+    border: none;
+    background: none;
+    outline: none;
+    &:hover, &:focus {
+      cursor: pointer;
+      color: #ffb703;
+      &::after {
+        cursor: pointer;
+        color: #ffb703;
+        border: 1px solid #fff;
+      }
+    }
+    .accordion-title {
+      padding: 1em 1.5em 1em 0;
+    }
+    .icon {
+      display: inline-block;
+      position: absolute;
+      top: 18px;
+      right: 0;
+      width: 22px;
+      height: 22px;
+      border: 1px solid;
+      border-radius: 22px;
+      &::before {
+        display: block;
+        position: absolute;
+        content: '';
+        top: 9px;
+        left: 5px;
+        width: 10px;
+        height: 2px;
+        background: currentColor;
+      }
+      &::after {
+        display: block;
+        position: absolute;
+        content: '';
+        top: 5px;
+        left: 9px;
+        width: 2px;
+        height: 10px;
+        background: currentColor;
+      }
+    }
+  }
+  button[aria-expanded='true'] {
+    color: #ffb703;
+    .icon {
+      &::after {
+        width: 0;
+      }
+    }
+    + .accordion-content {
+      opacity: 1;
+      max-height: 9em;
+      transition: all 200ms linear;
+      will-change: opacity, max-height;
+    }
+  }
+  .accordion-content {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 200ms linear, max-height 200ms linear;
+    will-change: opacity, max-height;
+    p {
+        font-family: 'Quicksand', sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      margin: 2em 0;
+    }
+  }
+}
+
+.navigation {
+    width: 800px;
+    height: 100px;
+    background-color: #ffffff;
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px;
+      padding: 0;
+      margin-left: auto;
+      margin-right: auto;
+    border-radius: 40px;
+    
+  }
+  
+  .navigation ul {
+    display: flex;
+    width: 100%;
+  }
+  
+  .navigation ul li {
+    position: relative;
+    list-style: none;
+    width: 200px;
+    height: 70px;
+    z-index: 1;
+    }
+  
+    .navigation ul li a {
+      position: relative;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      text-align: center;
+      font-weight: bold;
+      text-decoration: none;
+      }
+  
+      .navigation ul li a .icon{
+        position: relative;
+        display: block;
+        line-height: 100px;
+        font-size: 3em;
+        text-align: center;
+        transition: 0.5;
+        color: #023047;
+        transition: all 0.5s;
+      }
+  
+      .navigation ul li:hover a .icon{
+        transform: translateY(-100px);
+        color: #ffffff;
+      }
+  
+      .navigation ul li a .text {
+        position: absolute;
+        color: #023047;
+        font-weight: bold;
+        font-size: 1.5em;
+        letter-spacing: 0.05em;
+        transition: 0.05s;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.5s;
+  
+      } 
+  
+      .navigation ul li:hover a .text {
+        opacity: 1;
+        transform: translateY(10px);
+        color: #fb8500;
+      }
+
+      section {
+        display: flex;
+        justify-content: center;
+        place-items: center;
+        align-content: center;
+        
+      }
+      
+      .jude {
+        animation-delay: 2s;
+        opacity: 0;
+        filter: blur(20px);
+        transform: translateX(-100%);
+        transition: all 1.5s;
+      }
+      
+      @media(prefers-reduced-motion) {
+        .jude {
+            transition: none;
+        }
+      }
+      .show {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateX(0);
+      
+      }
+    
